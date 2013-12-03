@@ -1,0 +1,29 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Exercise # 5</title>
+    <script src="http://code.jquery.com/jquery-1.9.1.js"></script>
+    <script>
+      $(function() {
+        for (var a=5;a<500;a++){ 
+          for (var b=5;b<500;b++){ 
+            calc(a,b);
+          }
+        }
+
+        function calc(a,b){
+          c = 1000 - a - b
+          if( (c*c == a*a + b*b) && ( a < b && a < c && b < c )){
+            console.log("a = " + a);
+            console.log("b = " + b);
+            console.log("c = " + c);
+          }
+        }
+
+      });
+    </script>
+  </head>
+  <body>
+  </body>
+</html>
