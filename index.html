@@ -4,99 +4,71 @@
     <meta charset="utf-8">
     <title>Exercise # 6</title>
     <script src="http://code.jquery.com/jquery-1.9.1.js"></script>
+    <script src="http://underscorejs.org/underscore.js"></script>
     <script>
       $(function() {
 
-          //    array = [
-          //    [1,2,3,4], 
-          //    [12,13,14,5], 
-          //    [11,16,15,6], 
-          //    [10,9,8,7]]
+     //  array = [
+     //  [1,2,3,4], 
+     //  [12,13,14,5], 
+     //  [11,16,15,6], 
+     //  [10,9,8,7]]
 
-       array = [
-       [1,2,3], 
-       [8,9,4], 
-       [7,6,5]]
+          array = [
+          [1,4,7], 
+          [2,5,8], 
+          [3,6,9]]
 
-        total = array.length * array.length 
-        x = 0
-        y = 0
-        min_x = 0
-        min_y = 0
-        max_x = array.length - 1
-        max_y = array.length - 1
-        flow = "left_right"
+        total = array.length * array.length ;
+        x = 0;
+        y = 0;
+        min_x = 0;
+        min_y = 0;
+        max_x = array.length - 1;
+        max_y = array.length - 1;
+        flow = "left_bot";
 
-
-
-
-        left_right = function(){
-          if(x < max_x){
+        left_bot = function(){
+          for(x;x<=max_x;x++){
             console.log(array[y][x]);
-            x==max_x ? (x = max_x) : x++;
           }
-          else {
+          x = max_x;
+          y++;
+          for(y;y<=max_y;y++){
             console.log(array[y][x]);
-            min_y++
-            y = min_y
-            flow = "top_bot"
           }
+          min_y++;
+          max_x--;
+          y = max_y;
+          x = max_x;
+          flow = "right_top";
         }
 
-        top_bot = function(){
-          if(y < max_y){
+        right_top = function(){
+          for(x;x>=min_x;x--){
             console.log(array[y][x]);
-            y==max_y ? (y = max_y) : y++;
           }
-          else {
+          x = min_x;
+          y--;
+          for(y;y>=min_y;y--){
             console.log(array[y][x]);
-            max_x--;
-            x = max_x;
-            flow = "right_left"
           }
-        }
-
-        right_left = function(){
-          if(x > min_x){
-            console.log(array[y][x]);
-            x == min_x ? (x=min_x) : x--
-          }
-          else {
-            console.log(array[y][x]);
-            max_y--
-            y = max_y
-            flow = "bot_top"
-          }
-        }
-
-        bot_top = function(){
-          if(y > min_y){
-            console.log(array[y][x]);
-            y == min_y ? (y=min_y) : y--;
-          }
-          else {
-            console.log(array[y][x]);
-            min_x++;
-            x = min_x;
-            flow = "left_right"
-          }
+          max_y--;
+          min_x++;
+          x = min_x;
+          y = min_y;
+          flow = "left_bot";
         }
 
         start = function(){
-          for (var i=0;i < total ;i++){
+          for (var i=0;i <=array.length ;i++){
             switch(flow)
             {
-              case "left_right":
-              left_right();
+              case "left_bot":
+              left_bot();
               break;
-              case "top_bot":
-              top_bot();
-              break;
-              case "right_left":
-              right_left();
-              break;
-              case "bot_top":
-              bot_top()
+              case "right_top":
+              right_top();
               break;
             }
           }
