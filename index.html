@@ -1,0 +1,29 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Exercise # 2</title>
+    <script src="http://code.jquery.com/jquery-1.9.1.js"></script>
+    <script>
+      $(function() {
+
+        //DanielG
+        var funcs = {};
+
+        console.log("DanielG");
+        for (var i = 0; i < 3; i++) {          
+          funcs[i] = function(i) {            
+            console.log("My value: " + i);
+          };
+        }
+        for (var j = 0; j < 3; j++) {
+          funcs[j](j);
+        }
+
+      });
+    </script>
+  </head>
+  <body>
+
+  </body>
+</html>
