@@ -34,7 +34,7 @@ Feature: Manage Users
     Then I should see "Your user was not created"
     And I should have 0 users
 
-  Scenario: Update a User with the old password
+  Scenario: Edit a User with the old password
     Given I have a user with this information, "test_name","test_last_name", "test_mail", "123tamarindo"
     And I am on the list of users
     When I click on "Edit"
@@ -49,7 +49,7 @@ Feature: Manage Users
     And I should see "daniel.lopez@tangosource.com"
     And The last user should have "elmeneito" as password
 
-  Scenario: Update a User with the old password
+  Scenario: Edit a User with the old password
     Given I have a user with this information, "test_name","test_last_name", "test_mail", "123tamarindo"
     And I am on the list of users
     When I click on "Edit"
@@ -71,7 +71,7 @@ Feature: Manage Users
     And I am on the list of users
     When I click on "Delete"
     And I confirm the action
-    Then I should see not "Your user was not udpated"
+    Then I should see "Your user was deleted"
     And I should see not "test_name"
     And I should see not "test_last_name"
     And I should see not "test_mail"
