@@ -1,0 +1,12 @@
+<% if flash[:notice] %>
+<p class="flash-notice"><%= flash[:notice] %></p>
+<% end %>
+<%- users.each do |user| %>
+<%=h user.name %>
+<%=h user.last_name %>
+<%=h user.mail %>
+<%= link_to "Edit", edit_user_path(user)%>
+
+<% end %>
+<p><%= link_to "New User", new_user_path %></p>
+

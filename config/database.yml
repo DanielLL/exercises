@@ -1,0 +1,32 @@
+development: &development
+  adapter: postgresql
+  database: exercise4_development
+  username: root
+  password: root 
+  pool: 5
+  timeout: 5000
+
+test: &test
+  <<: *development
+  database: exercise4_test
+
+production: &production
+  adapter: postgresql
+  database: exercise4_production
+  pool: 5
+  timeout: 5000
+
+staging:
+  <<: *production
+  database: exercise4_staging
+
+integration:
+  <<: *production
+  database: exercise4_integration
+
+# Matching environments specified in this file will override the above.
+<%= IO.read('config/database.local.yml') if File.exists?('config/database.local.yml') %>
+
+cucumber:
+  <<: *test
+

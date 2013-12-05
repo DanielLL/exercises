@@ -1,0 +1,31 @@
+<h1>Users#edit</h1>
+<% if flash[:notice] %>
+<p class="flash-notice"><%= flash[:notice] %></p>
+<% end %>
+<%= form_for user do |f| %>
+  <ol class="formList">
+    <li>
+      <%= f.label :name %>
+      <%= f.text_field :name %>
+    </li>
+    <li>
+      <%= f.label :last_name %>
+      <%= f.text_field :last_name %>
+    </li>
+    <li>
+      <%= f.label :mail %>
+      <%= f.text_field :mail %>
+    </li>
+    <li>
+      <%= f.label :old_password %>
+      <%= f.password_field :old_password %>
+    </li>
+    <li>
+      <%= f.label :password %>
+      <%= f.password_field :password %>
+    </li>
+    <li>
+      <%= f.submit "Update User" %>
+    </li>
+  </ol>
+<% end %>
