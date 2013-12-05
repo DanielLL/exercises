@@ -38,6 +38,16 @@ class UsersController < ApplicationController
     end
   end
 
+  def destroy
+    if  user.destroy
+      flash[:notice] = "Your user was deleted"
+      redirect_to users_path
+    else
+      flash[:notice] = "Your user was not deleted"
+      redirect_to users_path
+    end
+
+  end
   private 
 
   def user_attributes

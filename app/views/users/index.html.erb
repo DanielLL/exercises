@@ -5,6 +5,7 @@
 <%=h user.name %>
 <%=h user.last_name %>
 <%=h user.mail %>
+<%= link_to 'Delete', user, method: :delete, data: { confirm: 'Are you sure?' } %>
 <%= link_to "Edit", edit_user_path(user)%>
 
 <% end %>

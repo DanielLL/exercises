@@ -64,3 +64,16 @@ Feature: Manage Users
     And I should see "test_last_name"
     And I should see "test_mail"
     And The last user should have "123tamarindo" as password
+
+    @javascript
+  Scenario: Destroy a User
+    Given I have a user with this information, "test_name","test_last_name", "test_mail", "123tamarindo"
+    And I am on the list of users
+    When I click on "Delete"
+    And I confirm the action
+    Then I should see not "Your user was not udpated"
+    And I should see not "test_name"
+    And I should see not "test_last_name"
+    And I should see not "test_mail"
+    And I should have 0 users
+
